@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kure - Recupera tu Espalda. Recupera tu Vida.</title>
+    <style>
+        /* --- Importar Fuentes --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+        /* MailerLite Fonts */
+        @import url("https://assets.mlcdn.com/fonts.css?version=1753713");
+
+        /* --- Reset y Estilos Base --- */
+        :root {
+            --green-primary: #10B981;
+            --green-secondary: #059669;
+            --green-light: #ECFDF5;
+            --green-accent: #6EE7B7;
+            --dark-gray: #111827;
+            --medium-gray: #4B5563;
+            --light-gray: #F9FAFB;
+            --white: #FFFFFF;
+            --blue-accent: #3B82F6;
+            --purple-accent: #8B5CF6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            line-height: 1.6;
+            padding-top: 60px;
+            /* Espacio para la barra de navegación fija en escritorio */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Barra de Navegación (Header Fijo) --- */
+        .main-header {
+            background-color: var(--white);
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            /* Permite que los elementos se envuelvan en móvil */
+        }
+
+        .brand-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--green-primary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* Contenedor de la navegación para ocultar/mostrar en móvil */
+        .nav-container {
+            display: flex;
+            /* Por defecto en desktop */
+            width: auto;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: var(--dark-gray);
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: var(--green-light);
+            color: var(--green-primary);
+        }
+
+        /* Hamburguesa (oculta por defecto en desktop) */
+        .hamburger-menu {
+            display: none;
+            /* Ocultar en desktop */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 1001;
+            /* Asegura que esté por encima de la barra de navegación cuando se despliegue */
+        }
+
+        .hamburger-menu .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--dark-gray);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Estilos de la hamburguesa abierta (rotación de las barras) */
+        .hamburger-menu.open .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger-menu.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        /* --- Botones CTA --- */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-secondary) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--green-primary);
+            border: 2px solid var(--green-primary);
+            margin-left: 15px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 0 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--green-light) 100%);
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 20px auto 40px;
+        }
+
+
+        /* --- Problem Section --- */
+        .problem-section {
+            background-color: var(--green-light);
+        }
+
+        .problem-section .container {
+            max-width: 800px;
+        }
+
+        /* --- How It Works Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* --- Mission Section --- */
+        .mission-section {
+            background-color: var(--light-gray);
+        }
+
+        .mission-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-content h2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2.25rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-icon {
+            width: 45px;
+            height: 45px;
+            color: var(--green-primary);
+            flex-shrink: 0;
+        }
+
+        .mission-content p {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+
+        /* --- Pioneer Offer Section --- */
+        .pioneer-offer {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #1F2937 100%);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 60px;
+            margin: 80px auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .pioneer-offer h2,
+        .pioneer-offer p {
+            color: var(--white);
+        }
+
+        .offer-list {
+            list-style: none;
+            margin: 40px 0;
+            padding-left: 20px;
+        }
+
+        .offer-list li {
+            padding-left: 35px;
+            position: relative;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .offer-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--green-primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .pioneer-offer .cta-button {
+            margin-top: 30px;
+            transform: scale(1.1);
+        }
+
+        .guarantee {
+            margin-top: 30px;
+            font-style: italic;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--green-primary);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: var(--dark-gray);
+        }
+
+        /* --- Waitlist Section --- */
+        .waitlist-section {
+            background-color: var(--green-light);
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        /* MailerLite Loader Styles */
+        .ml-form-embedSubmitLoad {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* No necesitamos los estilos de .email-form, .email-input, .privacy-note
+           ya que MailerLite manejará el formulario completo.
+           Mantengo .privacy-note si se quisiera añadir texto adicional fuera del formulario de ML.
+        */
+        .privacy-note {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            margin-top: 15px;
+        }
+
+
+        /* --- FAQ Section --- */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-item summary {
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 20px 0;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Safari */
+        .faq-item summary::after {
+            content: '+';
+            position: absolute;
+            right: 5px;
+            font-size: 1.5rem;
+            color: var(--green-primary);
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 0 10px 20px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            /* Header en móvil */
+            .main-header {
+                flex-direction: row;
+                /* Vuelve a row para logo y hamburguesa */
+                justify-content: space-between;
+                /* Espacio entre logo y hamburguesa */
+                align-items: center;
+                padding: 15px 20px;
+                /* Un poco más de padding vertical */
+            }
+
+            .brand-logo {
+                margin-bottom: 0;
+                /* No hay margen inferior en móvil */
+            }
+
+            /* Hamburguesa visible en móvil */
+            .hamburger-menu {
+                display: flex;
+            }
+
+            /* Contenedor de la navegación (oculto por defecto) */
+            .nav-container {
+                display: none;
+                /* Oculta la navegación por defecto en móvil */
+                width: 100%;
+                background-color: var(--white);
+                /* Fondo para el menú desplegable */
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 100%;
+                /* Debajo del header */
+                left: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                max-height: 0;
+                opacity: 0;
+            }
+
+            /* Menú desplegado */
+            .nav-container.open {
+                display: block;
+                /* O flex si prefieres para sus elementos internos */
+                max-height: 300px;
+                /* Suficiente para todos los enlaces */
+                opacity: 1;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                /* Los enlaces se apilan verticalmente */
+                gap: 0;
+                /* Elimina el gap entre enlaces */
+                padding: 10px 20px;
+                /* Padding interno del menú desplegado */
+            }
+
+            .nav-link {
+                padding: 12px 10px;
+                /* Más padding para facilitar el toque */
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--light-gray);
+                /* Separador entre enlaces */
+            }
+
+            .nav-link:last-child {
+                border-bottom: none;
+                /* No hay borde en el último enlace */
+            }
+
+            /* Ajuste del padding-top del body para la nueva altura del header en móvil */
+            body {
+                padding-top: 65px;
+                /* Altura del header compacto en móvil */
+            }
+
+
+            .hero {
+                padding: 80px 0 60px 0;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .cta-secondary {
+                margin-left: 0;
+            }
+
+            .mission-content h2 {
+                font-size: 1.8rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .mission-icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <script>
+        (function (w, d, e, u, f, l, n) {
+            w[f] = w[f] || function () {
+                (w[f].q = w[f].q || [])
+                    .push(arguments);
+            }, l = d.createElement(e), l.async = 1, l.src = u,
+                n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
+        })
+            (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
+        ml('account', '1701714');
+    </script>
+    </head>
+
+<body>
+
+    <header class="main-header">
+        <a href="#hero" class="brand-logo">Kure</a>
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav-container">
+            <nav class="nav-bar">
+                <a href="#hero" class="nav-link">Inicio</a>
+                <a href="#how-it-works" class="nav-link">Kure</a>
+                <a href="#mission" class="nav-link">Misión</a>
+                <a href="#pioneer-offer" class="nav-link">Oferta Pionero</a>
+                <a href="#waitlist" class="nav-link">Lista de Espera</a>
+                <a href="#faq" class="nav-link">FAQs</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero-content">
+                <h1>RECUPERA TU ESPALDA. RECUPERA TU VIDA.</h1>
+                <p>Porque la fisioterapia debería ser accesible e integral. Kure te ofrece una guía inteligente que une
+                    ejercicio, hábitos y bienestar mental para tu recuperación.</p>
+
+                <a href="https://www.paypal.com/subscribe" target="_blank" class="cta-button cta-primary">SÉ UNO DE LOS
+                    PIONEROS DE KURE.</a>
+                <a href="#waitlist" class="cta-button cta-secondary">QUIERO ESTAR EN LA LISTA DE ESPERA</a>
+            </div>
+        </section>
+
+        <section class="problem-section">
+            <div class="container text-center">
+                <h2>El Dolor Lumbar Crónico: Un Ciclo que Kure rompe.</h2>
+                <p>Si estás aquí, probablemente conoces la frustración. Visitas a especialistas que acaban en cinco
+                    minutos, tratamientos costosos que ofrecen alivio temporal y una sensación de dependencia que no te
+                    deja avanzar. El dolor lumbar crónico es más que una molestia; es un ciclo que afecta tu ánimo, tu
+                    energía y tu vida.</p>
+                <p>Como fisioterapeuta, he visto el sufrimiento de personas con dolor persistente, a menudo sin un daño
+                    estructural visible en las pruebas. Comprendí que la solución no estaba solo en tratar el síntoma,
+                    sino en abordar la causa raíz: la falta de un enfoque integral que incluya movimiento adaptado,
+                    manejo del estrés, calidad del sueño y hábitos saludables. Kure nace para romper ese ciclo y darte
+                    el control.</p>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <h2 class="text-center">Kure: El CÓMO Transformamos tu Bienestar</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="https://api.iconify.design/ph:brain-bold.svg?color=%2310B981"
+                            alt="Icono de cerebro para Inteligencia Artificial" class="feature-icon">
+                        <h3>Tu Plan Se Adapta a TI</h3>
+                        <p>Olvídate de lo genérico. Nuestra IA aprende de tu dolor diario, tu energía y tu progreso para
+                            adaptar tu plan en tiempo real. Tu cuerpo no es una máquina, cada día es diferente.</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://api.iconify.design/ph:yin-yang-bold.svg?color=%2310B981"
+                            alt="Icono Yin-Yang para enfoque integral" class="feature-icon">
+                        <h3>Enfoque Integral</h3>
+                        <p>Sabemos que tu espalda no vive aislada. Kure integra ejercicio, consejos de sueño, nutrición,
+                            manejo del estrés y hábitos saludables. Tu bienestar es una suma de todo.</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://api.iconify.design/ph:chats-circle-bold.svg?color=%2310B981"
+                            alt="Icono de chat para soporte" class="feature-icon">
+                        <h3>Tu Fisioterapeuta en el Bolsillo</h3>
+                        <p>¿Dudas? ¿Un ejercicio que no entiendes? Nuestro asistente de IA está para guiarte 24/7. Es
+                            como tener a tu experto personal siempre contigo (Función Premium).</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://api.iconify.design/ph:sparkle-bold.svg?color=%2310B981"
+                            alt="Icono de conocimiento y empoderamiento" class="feature-icon">
+                        <h3>Empoderamiento y Conocimiento</h3>
+                        <p>No solo te damos ejercicios. Te explicamos el "por qué" detrás de cada paso, para que
+                            entiendas tu dolor y tomes el control de tu propia recuperación. Sé tu mejor fisio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-section" id="mission">
+            <div class="container">
+                <div class="mission-content">
+                    <h2>
+                        <img src="https://api.iconify.design/ph:target-bold.svg?color=%2310B981"
+                            alt="Icono de objetivo" class="mission-icon">
+                        La Misión Detrás de Kure: Por Qué Estamos Aquí
+                    </h2>
+                    <p>Hola, soy <strong>Marcos</strong>, fisioterapeuta y fundador de Kure. Como muchos, he vivido
+                        la frustración del dolor lumbar, y en mis años de prácticas, vi la impotencia de pacientes con
+                        dolor crónico sin un camino claro. Me di cuenta de que la clave no solo es la terapia manual,
+                        sino empoderar a las personas a través del conocimiento y hábitos diarios.</p>
+                    <p>Kure nace de esa pasión: hacer que la fisioterapia personalizada y el bienestar integral sean
+                        accesibles para todos. No quiero que seas dependiente de mí o de nadie; quiero darte las
+                        herramientas para que seas dueño de tu propia salud. Tu apoyo como Pionero no es solo una
+                        compra, es unirte a una visión que está transformando vidas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pioneer-offer">
+            <div class="container">
+                <div class="pioneer-offer">
+                    <h2 class="text-center">OFERTA PIONERO KURE: Tu Pasaporte a una Vida Sin Dolor, Para Siempre.</h2>
+                    <p class="text-center">En Kure, construimos el futuro del bienestar lumbar contigo. Tu apoyo como
+                        Pionero es esencial, y queremos recompensarlo. Al unirte ahora, no solo aseguras tu acceso, sino
+                        que te conviertes en parte fundamental de nuestra misión.</p>
+                    <ul class="offer-list">
+                        <li><strong>PRECIO EXCLUSIVO PARA SIEMPRE:</strong> Asegura Kure por solo
+                            <strong>4,99€/mes</strong>. Este precio es vitalicio, nunca subirá para ti. Los futuros
+                            usuarios pagarán mucho más.
+                        </li>
+                        <li><strong>ACCESO ANTICIPADO AL MVP:</strong> Serás de los primeros en experimentar la versión
+                            inicial funcional de Kure. Empieza tu recuperación con IA antes que nadie.</li>
+                        <li><strong>CHAT DE IA PREMIUM:</strong> Acceso ilimitado a nuestro asistente de IA para
+                            resolver tus dudas y darte orientación personalizada 24/7.</li>
+                        <li><strong>VOZ DIRECTA EN EL DESARROLLO:</strong> Únete a un grupo privado exclusivo donde
+                            podrás dar feedback directo al fundador y ver cómo Kure evoluciona gracias a ti.</li>
+                        <li><strong>TRANSPARENCIA TOTAL:</strong> Eres parte del viaje. Te mantendremos informado de
+                            cada paso y de la fecha exacta de acceso al MVP (estimado a partir del <strong>28 de agosto
+                                de 2025</strong>).</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="https://www.paypal.com/subscribe" target="_blank"
+                            class="cta-button cta-primary">¡QUIERO SER PIONERO AHORA! (4,99€/mes para siempre)</a>
+                    </div>
+                    <p class="guarantee"><strong>¡Sin Riesgos para Ti!</strong> Confiamos plenamente en el valor de
+                        Kure. Si en tus primeros 14 días de acceso al MVP no sientes que te está ayudando a gestionar tu
+                        dolor lumbar y mejorar tu bienestar, te devolvemos tu dinero, sin preguntas. Tu bienestar es
+                        nuestra prioridad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="text-center">Lo que Dicen Nuestros Primeros Pioneros (¡Sé el Siguiente!)</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Increíble cómo Kure se adapta cada día. Sentía que por fin alguien entendía mi dolor lumbar.
+                            ¡Impaciente por la versión completa!"</p>
+                        <span class="author">- Un Pionero entusiasta</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"El enfoque integral de Kure me ha abierto los ojos. No es solo ejercicio, es un cambio de
+                            vida. La IA es una pasada."</p>
+                        <span class="author">- Beta Tester Anónimo</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Por fin una app que me explica el por qué de las cosas. Me siento empoderado para gestionar
+                            mi dolor. ¡Gracias, Kure!"</p>
+                        <span class="author">- Probador Inicial</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="waitlist-section" id="waitlist">
+            <div class="container">
+                <h2 class="text-center">Únete a la Lista de Espera</h2>
+                <div class="waitlist-form">
+                    <p class="text-center">¿Prefieres esperar al lanzamiento oficial? Déjanos tu email y te avisaremos
+                        cuando Kure esté listo.</p>
+                    <div class="ml-embedded" data-form="sXRwQK"></div>
+                    <p class="privacy-note">Tu email solo se usará para notificarte sobre Kure. Respetamos tu privacidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="text-center">Preguntas Frecuentes sobre Kure (FAQs)</h2>
+                <div class="faq-accordion">
+                    <details class="faq-item">
+                        <summary>¿Cómo funciona la versión de lanzamiento de Kure?</summary>
+                        <div class="faq-content">
+                            <p>Kure se lanzará con una primera versión completa y funcional. Esta incluye tu plan de
+                                recuperación personalizado (con ejercicios, hábitos y herramientas de bienestar mental),
+                                seguimiento de tu progreso inicial y acceso a nuestro asistente de IA para resolver
+                                dudas. Con tu apoyo como Pionero, iremos añadiendo nuevas funcionalidades y mejorando la
+                                experiencia continuamente.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Cuándo tendré acceso al MVP de Kure?</summary>
+                        <div class="faq-content">
+                            <p>Estamos trabajando duro para tener la primera versión funcional lista. Estimamos que el
+                                acceso estará disponible a partir del <strong>28 de agosto de 2025</strong>. Te
+                                mantendremos informado de cada avance.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Por qué el precio "para siempre" es tan bajo para los Pioneros?</summary>
+                        <div class="faq-content">
+                            <p>Queremos agradecer tu confianza y apoyo en esta fase inicial. Este precio especial es un
+                                reconocimiento a tu visión y a tu ayuda para construir Kure. Los precios para nuevos
+                                usuarios serán considerablemente más altos en el futuro.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Hay garantía de devolución de dinero?</summary>
+                        <div class="faq-content">
+                            <p>¡Absolutamente! Confiamos plenamente en el valor de Kure. Si en tus primeros 14 días de
+                                acceso al MVP no sientes que te está ayudando a gestionar tu dolor lumbar y mejorar tu
+                                bienestar, te devolvemos tu dinero, sin preguntas. Tu bienestar es nuestra prioridad.
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Kure sustituye a un fisioterapeuta o médico?</summary>
+                        <div class="faq-content">
+                            <p>No. Kure es una herramienta de apoyo y empoderamiento para tu bienestar diario. Siempre
+                                recomendamos consultar a un profesional de la salud para un diagnóstico y tratamiento
+                                personalizado. Kure es un complemento para tu recuperación y prevención.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Aviso Legal</a> |
+                <a href="#">Política de Privacidad</a> |
+                <a href="#">Política de Devoluciones</a>
+            </div>
+            <p class="footer-copyright">© 2025 Kure. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-bar .nav-link');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navContainer = document.querySelector('.nav-container');
+
+            // Toggle hamburger menu on click
+            hamburgerMenu.addEventListener('click', function () {
+                this.classList.toggle('open');
+                navContainer.classList.toggle('open');
+            });
+
+            // Close menu when a nav link is clicked (for mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) { // Only on mobile
+                        hamburgerMenu.classList.remove('open');
+                        navContainer.classList.remove('open');
+                    }
+                });
+            });
+
+
+            // Highlight active navigation link on scroll
+            function highlightNavLink() {
+                let currentActive = null;
+                const headerHeight = document.querySelector('.main-header').offsetHeight; // Get dynamic header height
+
+                sections.forEach(section => {
+                    // Adjust offset based on header height
+                    const sectionTop = section.offsetTop - headerHeight - 10; // Added extra 10px buffer
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const scrollPosition = window.scrollY;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        currentActive = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentActive)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Call on load and on scroll
+            window.addEventListener('scroll', highlightNavLink);
+            highlightNavLink(); // Initial call
+        });
+    </script>
+
+</body>
+
+</html>
