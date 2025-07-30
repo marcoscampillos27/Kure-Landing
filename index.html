@@ -398,8 +398,8 @@
         }
 
         /* No necesitamos los estilos de .email-form, .email-input, .privacy-note
-           ya que MailerLite manejará el formulario completo.
-           Mantengo .privacy-note si se quisiera añadir texto adicional fuera del formulario de ML.
+            ya que MailerLite manejará el formulario completo.
+            Mantengo .privacy-note si se quisiera añadir texto adicional fuera del formulario de ML.
         */
         .privacy-note {
             font-size: 0.9rem;
@@ -584,6 +584,26 @@
                 margin-bottom: 10px;
             }
         }
+
+        /* --- Estilos para imágenes de la aplicación --- */
+        .app-screenshot {
+            max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
+            width: 100%; /* Asegura que ocupe el ancho disponible en su contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; /* Para que ocupe su propia línea */
+            margin: 50px auto; /* Centra la imagen y le da espacio vertical */
+            border-radius: 20px; /* Esquinas redondeadas para un look moderno */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra sutil para darle profundidad */
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .app-screenshot {
+                margin: 30px auto; /* Menos margen en móviles */
+                border-radius: 10px; /* Menos redondeado en móviles */
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más suave en móviles */
+            }
+        }
     </style>
     <script>
         (function (w, d, e, u, f, l, n) {
@@ -596,7 +616,7 @@
             (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
         ml('account', '1701714');
     </script>
-    </head>
+</head>
 
 <body>
 
@@ -631,6 +651,8 @@
                 <a href="https://www.paypal.com/subscribe" target="_blank" class="cta-button cta-primary">SÉ UNO DE LOS
                     PIONEROS DE KURE.</a>
                 <a href="#waitlist" class="cta-button cta-secondary">QUIERO ESTAR EN LA LISTA DE ESPERA</a>
+
+                <img src="MOCK UP/Gemini_Generated_Image_97k6br97k6br97k6.jpg" alt="Captura de pantalla de la aplicación Kure mostrando la interfaz de usuario" class="app-screenshot">
             </div>
         </section>
 
@@ -646,6 +668,8 @@
                     sino en abordar la causa raíz: la falta de un enfoque integral que incluya movimiento adaptado,
                     manejo del estrés, calidad del sueño y hábitos saludables. Kure nace para romper ese ciclo y darte
                     el control.</p>
+
+                <img src="MOCK UP/Gemini_Generated_Image_joyundjoyundjoyu.jpg" alt="Captura de pantalla de la sección de ejercicios o seguimiento de progreso en Kure" class="app-screenshot">
             </div>
         </section>
 
