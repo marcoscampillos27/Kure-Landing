@@ -483,34 +483,34 @@
 
             h2 {
                 font-size: 1.8rem;
-                margin-bottom: 30px; /* Espacio debajo de los subtítulos */
-                padding: 0 10px; /* Asegurar que no se apelotonen en los bordes */
+                margin-bottom: 30px;
+                padding: 0 10px;
             }
 
             .hero-content h1 {
-                font-size: 2rem; /* Reduce el tamaño del título principal en móvil */
-                margin-bottom: 15px; /* Reduce el margen inferior */
+                font-size: 2rem;
+                margin-bottom: 15px;
             }
 
             .hero-content p {
-                font-size: 1rem; /* Reduce el tamaño del párrafo en móvil */
-                margin: 15px auto 30px; /* Reduce márgenes para compactar un poco, pero dejando espacio */
-                padding: 0 10px; /* Añade un pequeño padding lateral para evitar que el texto toque los bordes */
+                font-size: 1rem;
+                margin: 15px auto 30px;
+                padding: 0 10px;
             }
 
             p {
-                font-size: 1rem; /* Reduce el tamaño de los párrafos generales en móvil */
-                margin-bottom: 15px; /* Reduce el margen entre párrafos */
-                padding: 0 10px; /* Añade padding para que el texto no se pegue a los bordes */
+                font-size: 1rem;
+                margin-bottom: 15px;
+                padding: 0 10px;
             }
 
             /* Ajuste del padding general de las secciones y contenedores en móvil */
             section {
-                padding: 60px 0; /* Reduce el padding vertical de las secciones para compactar un poco más */
+                padding: 60px 0;
             }
 
             .container {
-                padding: 0 15px; /* Un poco menos de padding lateral en móvil para aprovechar el espacio */
+                padding: 0 15px;
             }
 
             /* Header en móvil */
@@ -539,7 +539,7 @@
                 left: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-                max-height: 0;
+                max-height: 300px;
                 opacity: 1;
             }
 
@@ -593,6 +593,60 @@
 
             .mission-icon {
                 margin-bottom: 10px;
+            }
+
+            /* Ajustes específicos para la sección "Pioneer Offer" en móvil */
+            .pioneer-offer {
+                padding: 40px 20px; /* Reduce el padding interno del contenedor de la oferta */
+                margin: 40px auto; /* Reduce el margen exterior para que ocupe menos espacio */
+            }
+
+            .pioneer-offer h2 {
+                font-size: 1.6rem; /* Ajusta el tamaño del título de la oferta */
+                margin-bottom: 20px; /* Menos espacio debajo del título */
+            }
+
+            .offer-list {
+                padding-left: 0; /* Elimina el padding izquierdo de la lista en móvil */
+                margin: 20px 0; /* Reduce el margen vertical de la lista */
+            }
+
+            .offer-list li {
+                font-size: 0.95rem; /* Reduce un poco el tamaño del texto de los ítems de la lista */
+                margin-bottom: 15px; /* Reduce el espacio entre ítems de la lista */
+                padding-left: 25px; /* Ajusta el padding para el tick */
+            }
+
+            .offer-list li::before {
+                font-size: 1.2rem; /* Reduce el tamaño del tick */
+                left: 0; /* Asegura que el tick esté alineado al inicio */
+                top: 2px; /* Ajusta la posición vertical del tick si es necesario */
+            }
+
+            .guarantee {
+                font-size: 0.9rem; /* Reduce el tamaño del texto de garantía */
+                margin-top: 20px; /* Reduce el margen superior */
+            }
+
+            /* Ajustes específicos para la sección "FAQ" en móvil */
+            .faq-accordion {
+                margin: 30px auto 0; /* Reduce el margen superior del acordeón */
+            }
+
+            .faq-item summary {
+                font-size: 1rem; /* Reduce el tamaño de las preguntas */
+                padding: 15px 0; /* Reduce el padding vertical de las preguntas */
+                padding-right: 25px; /* Ajusta el padding para el signo + */
+            }
+
+            .faq-item summary::after {
+                font-size: 1.3rem; /* Reduce el tamaño del signo + */
+                right: 0; /* Asegura que el signo + esté alineado al borde */
+            }
+
+            .faq-content p {
+                font-size: 0.95rem; /* Reduce el tamaño del texto de las respuestas */
+                padding: 0 5px 15px; /* Ajusta el padding interno de las respuestas */
             }
         }
 
