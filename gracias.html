@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias por unirte a Kure!</title>
+    <title>¡Gracias por tu apoyo! - Kure</title>
     <link rel="icon" href="/MOCK UP/kure-favicon.png" type="image/png">
 
     <style>
+        /* --- Importar Fuentes --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+        /* --- Estilos Base --- */
+        :root {
+            --green-primary: #10B981;
+            --dark-gray: #111827;
+            --medium-gray: #4B5563;
+            --white: #FFFFFF;
+            --light-gray: #F9FAFB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Inter', sans-serif; /* Usar la misma fuente de tu landing */
-            text-align: center;
-            padding: 50px;
-            background-color: #f9f9f9; /* Color de fondo similar a light-gray */
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
             line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
         }
-        .container-gracias {
-            max-width: 700px;
-            margin: 80px auto; /* Más margen para centrar verticalmente */
+
+        .container-thanks {
+            background-color: var(--white);
             padding: 40px;
-            border: 1px solid #e0e0e0;
-            border-radius: 15px; /* Más redondeado */
-            background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
         }
+
         h1 {
             font-family: 'Poppins', sans-serif;
-            color: #10B981; /* Tu green-primary */
+            font-weight: 700;
             font-size: 2.5rem;
+            color: var(--green-primary);
             margin-bottom: 20px;
         }
+
         p {
-            margin-bottom: 15px;
             font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
         }
+
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
@@ -44,24 +72,61 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
             border: none;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%); /* Tu estilo primary */
-            color: white;
+            background: linear-gradient(135deg, var(--green-primary) 0%, #059669 100%);
+            color: var(--white);
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            margin-top: 30px;
         }
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .container-thanks {
+                padding: 30px;
+            }
+        }
     </style>
-</head>
+
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1079232300967931'); // Este es tu ID de Pixel para Kure
+        fbq('track', 'PageView'); // Rastrea la visita a esta página de agradecimiento
+        // Opcional: Puedes añadir un evento de compra aquí directamente si es para una compra
+        // fbq('track', 'Purchase', { value: 4.99, currency: 'EUR' }); 
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1079232300967931&ev=PageView&noscript=1"
+            /></noscript>
+    </head>
+
 <body>
-    <div class="container-gracias">
-        <h1>¡Gracias por unirte a los Pioneros de Kure!</h1>
-        <p>Tu apoyo es fundamental para nosotros. Te has asegurado el precio exclusivo de <strong>4,99€/mes para siempre</strong>.</p>
-        <p>Recuerda: <strong>no se te cobrará nada durante los primeros 32 días desde tu suscripción</strong>. El lanzamiento del MVP es el 1 de septiembre de 2025.</p>
-        <p>Te enviaremos un email de confirmación con todos los detalles.</p>
-        <a href="https://kure-landing.vercel.app/" class="cta-button">Volver a la Página Principal</a>
+    <div class="container-thanks">
+        <h1>¡Gracias por unirte a Kure!</h1>
+        <p>Tu apoyo como Pionero es esencial para construir el futuro de la recuperación lumbar. Te hemos enviado un
+            correo electrónico con más detalles.</p>
+        <p>Mantente atento a las actualizaciones sobre el lanzamiento del MVP.</p>
+        <a href="https://kure-landing.vercel.app/" class="cta-button">Volver al inicio</a>
     </div>
 </body>
+
 </html>
