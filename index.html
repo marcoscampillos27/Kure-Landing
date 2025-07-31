@@ -454,7 +454,8 @@
         /* --- Footer --- */
         .footer {
             background-color: var(--dark-gray);
-            color: var(--light-gray); /* Color base de los enlaces del footer */
+            color: var(--light-gray);
+            /* Color base de los enlaces del footer */
             padding: 40px 0;
             text-align: center;
         }
@@ -471,12 +472,15 @@
 
         .footer-copyright {
             margin-top: 20px;
-            color: var(--white); /* ¡CAMBIO AQUÍ! Color blanco para los derechos reservados */
-            opacity: 1; /* Para asegurar que el blanco sea completo y no transparente */
+            color: var(--white);
+            /* ¡CAMBIO AQUÍ! Color blanco para los derechos reservados */
+            opacity: 1;
+            /* Para asegurar que el blanco sea completo y no transparente */
         }
 
         /* --- Media Queries for Responsiveness --- */
         @media (max-width: 768px) {
+
             /* Ajustes de tamaño y espacio para títulos y párrafos en móvil */
             h1 {
                 font-size: 2.5rem;
@@ -598,56 +602,78 @@
 
             /* Ajustes específicos para la sección "Pioneer Offer" en móvil */
             .pioneer-offer {
-                padding: 40px 20px; /* Reduce el padding interno del contenedor de la oferta */
-                margin: 40px auto; /* Reduce el margen exterior para que ocupe menos espacio */
+                padding: 40px 20px;
+                /* Reduce el padding interno del contenedor de la oferta */
+                margin: 40px auto;
+                /* Reduce el margen exterior para que ocupe menos espacio */
             }
 
             .pioneer-offer h2 {
-                font-size: 1.6rem; /* Ajusta el tamaño del título de la oferta */
-                margin-bottom: 20px; /* Menos espacio debajo del título */
+                font-size: 1.6rem;
+                /* Ajusta el tamaño del título de la oferta */
+                margin-bottom: 20px;
+                /* Menos espacio debajo del título */
             }
 
             .offer-list {
-                padding-left: 0; /* Elimina el padding izquierdo de la lista en móvil */
-                margin: 20px 0; /* Reduce el margen vertical de la lista */
+                padding-left: 0;
+                /* Elimina el padding izquierdo de la lista en móvil */
+                margin: 20px 0;
+                /* Reduce el margen vertical de la lista */
             }
 
             .offer-list li {
-                font-size: 0.95rem; /* Reduce un poco el tamaño del texto de los ítems de la lista */
-                margin-bottom: 15px; /* Reduce el espacio entre ítems de la lista */
-                padding-left: 25px; /* Ajusta el padding para el tick */
+                font-size: 0.95rem;
+                /* Reduce un poco el tamaño del texto de los ítems de la lista */
+                margin-bottom: 15px;
+                /* Reduce el espacio entre ítems de la lista */
+                padding-left: 25px;
+                /* Ajusta el padding para el tick */
             }
 
             .offer-list li::before {
-                font-size: 1.2rem; /* Reduce el tamaño del tick */
-                left: 0; /* Asegura que el tick esté alineado al inicio */
-                top: 2px; /* Ajusta la posición vertical del tick si es necesario */
+                font-size: 1.2rem;
+                /* Reduce el tamaño del tick */
+                left: 0;
+                /* Asegura que el tick esté alineado al inicio */
+                top: 2px;
+                /* Ajusta la posición vertical del tick si es necesario */
             }
 
             .guarantee {
-                font-size: 0.9rem; /* Reduce el tamaño del texto de garantía */
-                margin-top: 20px; /* Reduce el margen superior */
+                font-size: 0.9rem;
+                /* Reduce el tamaño del texto de garantía */
+                margin-top: 20px;
+                /* Reduce el margen superior */
             }
 
             /* Ajustes específicos para la sección "FAQ" en móvil */
             .faq-accordion {
-                margin: 30px auto 0; /* Reduce el margen superior del acordeón */
+                margin: 30px auto 0;
+                /* Reduce el margen superior del acordeón */
             }
 
             .faq-item summary {
-                font-size: 1rem; /* Reduce el tamaño de las preguntas */
-                padding: 15px 0; /* Reduce el padding vertical de las preguntas */
-                padding-right: 25px; /* Ajusta el padding para el signo + */
+                font-size: 1rem;
+                /* Reduce el tamaño de las preguntas */
+                padding: 15px 0;
+                /* Reduce el padding vertical de las preguntas */
+                padding-right: 25px;
+                /* Ajusta el padding para el signo + */
             }
 
             .faq-item summary::after {
-                font-size: 1.3rem; /* Reduce el tamaño del signo + */
-                right: 0; /* Asegura que el signo + esté alineado al borde */
+                font-size: 1.3rem;
+                /* Reduce el tamaño del signo + */
+                right: 0;
+                /* Asegura que el signo + esté alineado al borde */
             }
 
             .faq-content p {
-                font-size: 0.95rem; /* Reduce el tamaño del texto de las respuestas */
-                padding: 0 5px 15px; /* Ajusta el padding interno de las respuestas */
+                font-size: 0.95rem;
+                /* Reduce el tamaño del texto de las respuestas */
+                padding: 0 5px 15px;
+                /* Ajusta el padding interno de las respuestas */
             }
         }
 
@@ -704,7 +730,25 @@
             (window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
         ml('account', '1701714');
     </script>
-</head>
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1079232300967931');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1079232300967931&ev=PageView&noscript=1"
+            /></noscript>
+    </head>
 
 <body>
 
@@ -838,7 +882,10 @@
                             <strong>4,99€/mes</strong>. Este precio es vitalicio, nunca subirá para ti. Los futuros
                             usuarios pagarán mucho más.
                         </li>
-                        <li><strong>¡SIN COBRO INICIAL! Asegura tu precio hoy:</strong> Tu suscripción se activará y te aseguraras el precio, pero **no se te realizará ningún cargo durante los primeros 32 días**. Tu primer cobro de 4,99€/mes se producirá tras este periodo de gracia. El lanzamiento del MVP es el 1 de septiembre de 2025.</li>
+                        <li><strong>¡SIN COBRO INICIAL! Asegura tu precio hoy:</strong> Tu suscripción se activará y te
+                            aseguras el precio, pero **no se te realizará ningún cargo durante los primeros 32 días**. Tu
+                            primer cobro de 4,99€/mes se producirá tras este periodo de gracia. El lanzamiento del MVP es
+                            el 1 de septiembre de 2025.</li>
                         <li><strong>ACCESO ANTICIPADO AL MVP:</strong> Serás de los primeros en experimentar la versión
                             inicial funcional de Kure desde el 1 de septiembre de 2025. Empieza tu recuperación con IA
                             antes que nadie.</li>
@@ -853,7 +900,9 @@
                         <div class="paypal-button-wrapper">
                             <div id="paypal-button-container-P-6X90429103592954PNCFT4OA"></div>
                         </div>
-                        <script src="https://www.paypal.com/sdk/js?client-id=ASTA49ba3x5hb3W6zOFWuR4QWbvwYFixdDP5uWvI4XWl57DbeGeW9H7c0omYLE0S1QFM6cC7Y3jN6FYI&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                        <script
+                            src="https://www.paypal.com/sdk/js?client-id=ASTA49ba3x5hb3W6zOFWuR4QWbvwYFixdDP5uWvI4XWl57DbeGeW9H7c0omYLE0S1QFM6cC7Y3jN6FYI&vault=true&intent=subscription"
+                            data-sdk-integration-source="button-factory"></script>
                         <script>
                             paypal.Buttons({
                                 style: {
@@ -862,18 +911,18 @@
                                     layout: 'vertical',
                                     label: 'subscribe'
                                 },
-                                createSubscription: function(data, actions) {
-                                  return actions.subscription.create({
+                                createSubscription: function (data, actions) {
                                     /* Creates the subscription */
-                                    plan_id: 'P-6X90429103592954PNCFT4OA'
-                                  });
+                                    return actions.subscription.create({
+                                        plan_id: 'P-6X90429103592954PNCFT4OA'
+                                    });
                                 },
-                                onApprove: function(data, actions) {
-                                  // ESTA ES LA LÍNEA QUE REDIRIGE A LA PÁGINA DE AGRADECIMIENTO TRAS PAGO EXITOSO
-                                  // Asegúrate de que esta URL sea la correcta para tu despliegue en Vercel
-                                  window.location.href = 'https://kure-landing.vercel.app/gracias.html';
+                                onApprove: function (data, actions) {
+                                    // ESTA ES LA LÍNEA QUE REDIRIGE A LA PÁGINA DE AGRADECIMIENTO TRAS PAGO EXITOSO
+                                    // Asegúrate de que esta URL sea la correcta para tu despliegue en Vercel
+                                    window.location.href = 'https://kure-landing.vercel.app/gracias.html';
                                 },
-                                onError: function(err) { // Añadir un manejador de errores
+                                onError: function (err) { // Añadir un manejador de errores
                                     console.error('Error al procesar la suscripción:', err);
                                     alert('Hubo un error al procesar tu suscripción. Por favor, inténtalo de nuevo.');
                                 }
