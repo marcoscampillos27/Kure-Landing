@@ -476,46 +476,66 @@
 
         /* --- Media Queries for Responsiveness --- */
         @media (max-width: 768px) {
+            /* Ajustes de tamaño y espacio para títulos y párrafos en móvil */
             h1 {
                 font-size: 2.5rem;
             }
 
             h2 {
                 font-size: 1.8rem;
+                margin-bottom: 30px; /* Espacio debajo de los subtítulos */
+                padding: 0 10px; /* Asegurar que no se apelotonen en los bordes */
+            }
+
+            .hero-content h1 {
+                font-size: 2rem; /* Reduce el tamaño del título principal en móvil */
+                margin-bottom: 15px; /* Reduce el margen inferior */
+            }
+
+            .hero-content p {
+                font-size: 1rem; /* Reduce el tamaño del párrafo en móvil */
+                margin: 15px auto 30px; /* Reduce márgenes para compactar un poco, pero dejando espacio */
+                padding: 0 10px; /* Añade un pequeño padding lateral para evitar que el texto toque los bordes */
+            }
+
+            p {
+                font-size: 1rem; /* Reduce el tamaño de los párrafos generales en móvil */
+                margin-bottom: 15px; /* Reduce el margen entre párrafos */
+                padding: 0 10px; /* Añade padding para que el texto no se pegue a los bordes */
+            }
+
+            /* Ajuste del padding general de las secciones y contenedores en móvil */
+            section {
+                padding: 60px 0; /* Reduce el padding vertical de las secciones para compactar un poco más */
+            }
+
+            .container {
+                padding: 0 15px; /* Un poco menos de padding lateral en móvil para aprovechar el espacio */
             }
 
             /* Header en móvil */
             .main-header {
                 flex-direction: row;
-                /* Vuelve a row para logo y hamburguesa */
                 justify-content: space-between;
-                /* Espacio entre logo y hamburguesa */
                 align-items: center;
                 padding: 15px 20px;
-                /* Un poco más de padding vertical */
             }
 
             .brand-logo {
                 margin-bottom: 0;
-                /* No hay margen inferior en móvil */
             }
 
-            /* Hamburguesa visible en móvil */
             .hamburger-menu {
                 display: flex;
             }
 
-            /* Contenedor de la navegación (oculto por defecto) */
             .nav-container {
                 display: none;
-                /* Oculta la navegación por defecto en móvil */
                 width: 100%;
                 background-color: var(--white);
-                /* Fondo para el menú desplegable */
                 box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
                 position: absolute;
                 top: 100%;
-                /* Debajo del header */
                 left: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -523,42 +543,31 @@
                 opacity: 1;
             }
 
-            /* Menú desplegado */
             .nav-container.open {
                 display: block;
-                /* O flex si prefieres para sus elementos internos */
                 max-height: 300px;
-                /* Suficiente para todos los enlaces */
                 opacity: 1;
             }
 
             .nav-bar {
                 flex-direction: column;
-                /* Los enlaces se apilan verticalmente */
                 gap: 0;
-                /* Elimina el gap entre enlaces */
                 padding: 10px 20px;
-                /* Padding interno del menú desplegado */
             }
 
             .nav-link {
                 padding: 12px 10px;
-                /* Más padding para facilitar el toque */
                 width: 100%;
                 text-align: center;
                 border-bottom: 1px solid var(--light-gray);
-                /* Separador entre enlaces */
             }
 
             .nav-link:last-child {
                 border-bottom: none;
-                /* No hay borde en el último enlace */
             }
 
-            /* Ajuste del padding-top del body para la nueva altura del header en móvil */
             body {
                 padding-top: 65px;
-                /* Altura del header compacto en móvil */
             }
 
 
