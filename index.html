@@ -518,7 +518,7 @@
                 overflow: hidden;
                 transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
                 max-height: 0;
-                opacity: 0;
+                opacity: 1;
             }
 
             /* Menú desplegado */
@@ -613,6 +613,15 @@
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
                 /* Sombra más suave en móviles */
             }
+        }
+
+        /* Nuevo estilo para centrar el botón de PayPal*/
+        .paypal-button-wrapper {
+            max-width: 300px; /* Ajusta este valor si el botón de PayPal es más ancho o más estrecho*/
+            margin: 0 auto; /* Centra el div*/
+            text-align: center; /* Asegura el centrado del contenido dentro si es in-line*/
+            /* Puedes añadir un margen superior si quieres separarlo más del texto */
+            margin-top: 20px; /**/
         }
     </style>
     <script>
@@ -772,13 +781,15 @@
                             cada paso hasta el lanzamiento.</li>
                     </ul>
                     <div class="text-center">
-                        <div id="paypal-button-container-P-6X90429103592954PNCFT4OA"></div>
+                        <div class="paypal-button-wrapper">
+                            <div id="paypal-button-container-P-6X90429103592954PNCFT4OA"></div>
+                        </div>
                         <script src="https://www.paypal.com/sdk/js?client-id=ASTA49ba3x5hb3W6zOFWuR4QWbvwYFixdDP5uWvI4XWl57DbeGeW9H7c0omYLE0S1QFM6cC7Y3jN6FYI&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
                         <script>
                             paypal.Buttons({
                                 style: {
                                     shape: 'rect',
-                                    color: 'blue', // O el color que hayas elegido (ej. 'gold')
+                                    color: 'blue',
                                     layout: 'vertical',
                                     label: 'subscribe'
                                 },
@@ -789,7 +800,8 @@
                                   });
                                 },
                                 onApprove: function(data, actions) {
-                                  // Redirigir a la página de agradecimiento tras pago exitoso
+                                  // ESTA ES LA LÍNEA QUE REDIRIGE A LA PÁGINA DE AGRADECIMIENTO TRAS PAGO EXITOSO
+                                  // Asegúrate de que esta URL sea la correcta para tu despliegue en Vercel
                                   window.location.href = 'https://kure-landing.vercel.app/gracias.html';
                                 },
                                 onError: function(err) { // Añadir un manejador de errores
